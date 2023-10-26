@@ -2,6 +2,7 @@ import 'package:ecom_app/utils/constants.dart';
 import 'package:ecom_app/widgets/custom_main_button.dart';
 import 'package:ecom_app/widgets/text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:ecom_app/screens/signup_screen.dart';
 
 import 'package:ecom_app/utils/constants.dart';
 import 'package:ecom_app/widgets/text_field.dart';
@@ -80,7 +81,7 @@ class _SignInState extends State<SignIn> {
                             CustomMainButton(child: Text("Sign In",
                               style: TextStyle(letterSpacing: 0.6),),
                                 color: Colors.orange,
-                                isLoading: true,
+                                isLoading: false,
                                 onPressed: (){})
                         ),
 
@@ -106,8 +107,13 @@ class _SignInState extends State<SignIn> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20.0),
-                  CustomMainButton(child: Text("Create Account", style: TextStyle(letterSpacing: 0.6),), color: Colors.grey, isLoading: false, onPressed: (){})
+                  const SizedBox(height: 20.0),
+                  CustomMainButton(child: Text("Create Account", style: TextStyle(letterSpacing: 0.6),), color: Colors.grey, isLoading: false, onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context){
+                      return SignUpScreen();
+                    }));
+                  })
                 ],
               ),
             ),
