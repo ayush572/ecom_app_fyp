@@ -45,14 +45,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: screenSize.height * 0.1,
                     width: screenSize.width,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15
                   ),
                   SizedBox(
                     height: screenSize.height * 0.7,
                     child: FittedBox(
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         height: screenSize.height,
                         width: screenSize.width * 0.8,
                         decoration: BoxDecoration(
@@ -67,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
 
-                            Text("Sign In", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 33),),
+                            const Text("Sign In", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 33),),
 
                             TextFieldWidget(
                               title: "Name",
@@ -95,11 +95,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                             Align(alignment: Alignment.center,
                                 child:
-                                CustomMainButton(child: Text("Sign In",
-                                  style: TextStyle(letterSpacing: 0.6),),
-                                    color: Colors.orange,
+                                CustomMainButton(color: Colors.orange,
                                     isLoading: true,
-                                    onPressed: (){})
+                                    onPressed: (){}, child: const Text("Sign In",
+                                  style: TextStyle(letterSpacing: 0.6),))
                             ),
 
                           ],
@@ -111,9 +110,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
 
-                  CustomMainButton(child: Text("Back", style: TextStyle(letterSpacing: 0.6),), color: Colors.grey, isLoading: false, onPressed: (){
+                  CustomMainButton(color: Colors.grey, isLoading: false, onPressed: (){
                     Navigator.pop(context);
-                  })
+                  }, child: const Text("Back", style: TextStyle(letterSpacing: 0.6),))
                 ],
               ),
             ),

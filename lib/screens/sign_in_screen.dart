@@ -1,12 +1,9 @@
-import 'package:ecom_app/utils/constants.dart';
+// import 'package:ecom_app/utils/constants.dart';
 import 'package:ecom_app/widgets/custom_main_button.dart';
 import 'package:ecom_app/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:ecom_app/screens/signup_screen.dart';
 
-import 'package:ecom_app/utils/constants.dart';
-import 'package:ecom_app/widgets/text_field.dart';
-import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -29,6 +26,8 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
+
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -47,9 +46,9 @@ class _SignInState extends State<SignIn> {
                     height: screenSize.height * 0.1,
                     width: screenSize.width,
                   ),
-                  SizedBox(height: 40.0),
+                  const SizedBox(height: 40.0),
                   Container(
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     height: screenSize.height * 0.6,
                     width: screenSize.width * 0.8,
                     decoration: BoxDecoration(
@@ -63,7 +62,7 @@ class _SignInState extends State<SignIn> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Sign In", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 33),),
+                        const Text("Sign In", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 33),),
                         TextFieldWidget(
                           title: "Email",
                           controller: emailController,
@@ -78,18 +77,17 @@ class _SignInState extends State<SignIn> {
                         ),
                         Align(alignment: Alignment.center,
                             child:
-                            CustomMainButton(child: Text("Sign In",
-                              style: TextStyle(letterSpacing: 0.6),),
-                                color: Colors.orange,
+                            CustomMainButton(color: Colors.orange,
                                 isLoading: false,
-                                onPressed: (){})
+                                onPressed: (){}, child: const Text("Sign In",
+                              style: TextStyle(letterSpacing: 0.6),))
                         ),
 
                       ],
                     ),
 
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Row(
                     children: [
                       Expanded(
@@ -98,7 +96,7 @@ class _SignInState extends State<SignIn> {
                           color: Colors.grey
                         ),
                       ),
-                      Text("New to Shoppers?", style: TextStyle(color: Colors.grey)),
+                      const Text("New to Shoppers?", style: TextStyle(color: Colors.grey)),
                       Expanded(
                         child: Container(
                             height: 1,
@@ -108,12 +106,12 @@ class _SignInState extends State<SignIn> {
                     ],
                   ),
                   const SizedBox(height: 20.0),
-                  CustomMainButton(child: Text("Create Account", style: TextStyle(letterSpacing: 0.6),), color: Colors.grey, isLoading: false, onPressed: (){
+                  CustomMainButton(color: Colors.grey, isLoading: false, onPressed: (){
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context){
-                      return SignUpScreen();
+                      return const SignUpScreen();
                     }));
-                  })
+                  }, child: const Text("Create Account", style: TextStyle(letterSpacing: 0.6),))
                 ],
               ),
             ),
@@ -121,5 +119,9 @@ class _SignInState extends State<SignIn> {
         ),
       ),
     );
+
+
+
+
   }
 }
