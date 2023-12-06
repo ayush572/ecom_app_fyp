@@ -1,3 +1,13 @@
+import 'package:ecommerce_new/model/product_model.dart';
+import 'package:ecommerce_new/widgets/simple_product_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:ecommerce_new/screens/home_screen.dart';
+import 'package:ecommerce_new/screens/account_screen.dart';
+import 'package:ecommerce_new/screens/cart_screen.dart';
+import 'package:ecommerce_new/screens/more_screen.dart';
+
+
+
 const double kAppBarHeight = 80;
 
 const String amazonLogoUrl =
@@ -13,6 +23,22 @@ const List<String> categoriesList = [
   "Appliances",
   "Books, Toys",
   "Essential"
+];
+
+const List<Widget> screens = [
+  HomeScreen(),
+  AccountScreen(),
+  CartScreen(),
+  MoreScreen(),
+  Center(
+    child: Text("Account screen"),
+  ),
+  Center(
+    child: Text("Cart screen"),
+  ),
+  Center(
+    child: Text("More screen"),
+  ),
 ];
 
 const List<String> categoryLogos = [
@@ -52,3 +78,72 @@ const List<String> adItemNames = [
 // Don't even attempt to scroll to the end of this manually lmao
 const String amazonLogo =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png";
+
+
+List<Widget> testChildren = [
+  SimpleProductWidget(
+    productModel: ProductModel(
+        url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+        productName: "product 1",
+        cost: 200,
+        discount: 50,
+        uid: "a5r8a6hf7",
+        sellerName: "seller 1",
+        sellerUid: "87283481jasdf",
+        rating: 3,
+        noOfRating: 1
+    )
+  ),
+  SimpleProductWidget(
+      productModel: ProductModel(
+          url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+          productName: "product 1",
+          cost: 200,
+          discount: 50,
+          uid: "a5r8a6hf7",
+          sellerName: "seller 1",
+          sellerUid: "87283481jasdf",
+          rating: 3,
+          noOfRating: 1
+      )
+  ),
+  SimpleProductWidget(
+      productModel: ProductModel(
+          url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+          productName: "product 1",
+          cost: 200,
+          discount: 50,
+          uid: "a5r8a6hf7",
+          sellerName: "seller 1",
+          sellerUid: "87283481jasdf",
+          rating: 3,
+          noOfRating: 1
+      )
+  ),
+  SimpleProductWidget(
+      productModel: ProductModel(
+          url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+          productName: "product 1",
+          cost: 200,
+          discount: 50,
+          uid: "a5r8a6hf7",
+          sellerName: "seller 1",
+          sellerUid: "87283481jasdf",
+          rating: 3,
+          noOfRating: 1
+      )
+  ),
+  SimpleProductWidget(
+      productModel: ProductModel(
+          url: "https://m.media-amazon.com/images/I/11uufjN3lYL._SX90_SY90_.png",
+          productName: "product 1",
+          cost: 200,
+          discount: 50,
+          uid: "a5r8a6hf7",
+          sellerName: "seller 1",
+          sellerUid: "87283481jasdf",
+          rating: 3,
+          noOfRating: 1
+      )
+  ),
+];

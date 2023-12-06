@@ -12,6 +12,7 @@ class TextFieldWidget extends StatefulWidget {
 }
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,12 +30,17 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         ),
         TextField(
           obscureText: widget.obscureText,
+          controller: widget.controller,
           maxLines: 1,
           decoration: InputDecoration(
             hintText: widget.hintText,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(3),
-                borderSide: const BorderSide(color: Colors.grey, width: 1)),
+                borderSide: const BorderSide(
+                    color: Colors.grey,
+                    width: 1
+                )
+            ),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.orange,

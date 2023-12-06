@@ -1,3 +1,5 @@
+import 'package:ecommerce_new/resources/auth_resources.dart';
+import 'package:ecommerce_new/utils/color_theme.dart';
 import 'package:ecommerce_new/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_new/widgets/custom_main_button.dart';
@@ -18,6 +20,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  AuthenticationMethods authenticationMethods = AuthenticationMethods();
+  bool isLoading = false;
 
   @override
   void dispose() {
@@ -52,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   // ),
                   const SizedBox(height: 40.0),
                   Container(
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(25),
                     height: screenSize.height * 0.6,
                     width: screenSize.width * 0.8,
                     decoration: BoxDecoration(
@@ -75,15 +79,37 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                         TextFieldWidget(
                           title: "Password",
-                          controller: emailController,
+                          controller: passwordController,
                           obscureText: true,
                           hintText: "Enter your password",
                         ),
                         Align(alignment: Alignment.center,
                             child:
-                            CustomMainButton(color: Colors.orange,
-                                isLoading: false,
-                                onPressed: (){}, child: const Text("Sign In",
+                            CustomMainButton(color: yellowColor,
+                                isLoading: isLoading,
+                                onPressed: () async {
+                                  setState(() {
+                                    isLoading = true;
+                                  });
+
+                                  String output = await authenticationMethods
+                                      .signInUser(
+                                      email: emailController.text,
+                                      password: passwordController.text
+                                  );
+                                  setState(() {
+                                    isLoading = false;
+                                  });
+                                  if (output == "success") {
+                                    //functions
+                                  } else {
+                                    //error
+                                    Utils().showSnackBar(
+                                        context: context, content: output);
+                                  }
+                                },
+                                child: const Text(
+                                  "Sign In",
                                   style: TextStyle(letterSpacing: 0.6),))
                         ),
 
@@ -91,7 +117,6 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
 
                   ),
-                  const SizedBox(height: 20.0),
                   Row(
                     children: [
                       Expanded(
@@ -109,13 +134,15 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20.0),
-                  CustomMainButton(color: Colors.grey, isLoading: true, onPressed: (){
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context){
+                  CustomMainButton(
+                      color: Colors.grey,
+                      isLoading: false,
+                      onPressed: (){
+                        Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context){
                           return const SignUpScreen();
                         }));
-                  }, child: const Text("Create Account", style: TextStyle(letterSpacing: 0.6),))
+                  }, child: const Text("Create Account", style: TextStyle(letterSpacing: 0.6, color: Colors.black),))
                 ],
               ),
             ),
