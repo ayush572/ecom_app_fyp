@@ -44,7 +44,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       "Sign Out",
                       style: TextStyle(color: Colors.black),
                     ),
-                    color: Colors.orange,
+                    color: Color(0xff5C8374),
                     isLoading: false,
                     onPressed: () {
                       FirebaseAuth.instance.signOut();
@@ -204,9 +204,7 @@ class IntroductionWidgetAccountScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(right: 20),
               child: CircleAvatar(
-                backgroundImage: NetworkImage(
-                  "https://m.media-amazon.com/images/I/116KbsvwCRL._SX90_SY90_.png",
-                ),
+                backgroundImage: AssetImage('lib/images/shopping-online.png'),
               ),
             )
           ],

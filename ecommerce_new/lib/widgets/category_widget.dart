@@ -35,9 +35,9 @@ class CategoryWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.network(
+              Image(image: AssetImage(
                 categoryLogos[index],
-              ),
+              )),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(

@@ -10,7 +10,7 @@ class CategoriesHorizontalListViewBar extends StatelessWidget {
     return Container(
       height: kAppBarHeight,
       width: double.infinity,
-      color: Colors.white,
+      color: Color(0xffF0ECE5),
       child: ListView.builder(
           itemCount: categoriesList.length,
           scrollDirection: Axis.horizontal,
@@ -28,13 +28,13 @@ class CategoriesHorizontalListViewBar extends StatelessWidget {
               },
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 17),
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       CircleAvatar(
-                        backgroundImage: NetworkImage(
+                        backgroundImage: AssetImage(
                           categoryLogos[index],
                         ),
                       ),

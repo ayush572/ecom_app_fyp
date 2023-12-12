@@ -70,9 +70,11 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             CategoriesHorizontalListViewBar(),
-            ProductsShowcaseListView(title: "Upto 70% off", children: testChildren),
-            ProductsShowcaseListView(title: "Upto 60% off", children: testChildren),
-            ProductsShowcaseListView(title: "Upto 50% off", children: testChildren),
+            ProductsShowcaseListView(title: "Accessories", children: accessoriesChildren),
+            ProductsShowcaseListView(title: "Furniture", children: furnitureChildren),
+            ProductsShowcaseListView(title: "Education & Fun", children: educationChildren),
+            ProductsShowcaseListView(title: "Machines", children: machineChildren),
+
 
           ],
         ),

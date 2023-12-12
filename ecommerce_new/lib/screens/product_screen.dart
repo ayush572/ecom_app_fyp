@@ -1,7 +1,7 @@
 import 'package:ecommerce_new/model/product_model.dart';
 // import 'package:ecommerce_new/model/review_model.dart';
 import 'package:ecommerce_new/model/user_details_model.dart';
-// import 'package:ecommerce_new/providers/user_details_provider.dart';
+import 'package:ecommerce_new/providers/user_details_provider.dart';
 import 'package:ecommerce_new/resources/cloudfirestore_methods.dart';
 import 'package:ecommerce_new/utils/color_theme.dart';
 import 'package:ecommerce_new/utils/constants.dart';
@@ -15,7 +15,10 @@ import 'package:ecommerce_new/widgets/custom_simple_rounded_button.dart';
 import 'package:ecommerce_new/widgets/search_bar_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
+// import 'package:flutter_unity_widget/flutter_unity_widget.dart';
+
+
 
 class ProductScreen extends StatefulWidget {
   final ProductModel productModel;
@@ -29,6 +32,11 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+
+  // UnityWidgetController? _unityWidgetController;
+
+
+
   Expanded spaceThingy = Expanded(child: Container());
   @override
   Widget build(BuildContext context) {
@@ -95,16 +103,16 @@ class _ProductScreenState extends State<ProductScreen> {
                                 "Buy Now",
                                 style: TextStyle(color: Colors.black),
                               ),
-                              color: Colors.orange,
+                              color: Color(0xff5C8374),
                               isLoading: false,
                               onPressed: () async {
-                                // await CloudFirestoreClass().addProductToOrders(
-                                //     model: widget.productModel,
-                                //     userDetails:
-                                //     Provider.of<UserDetailsProvider>(
-                                //         context,
-                                //         listen: false)
-                                //         .userDetails);
+                                await CloudFirestoreClass().addProductToOrders(
+                                    model: widget.productModel,
+                                    userDetails:
+                                    Provider.of<UserDetailsProvider>(
+                                        context,
+                                        listen: false)
+                                        .userDetails);
                                 Utils().showSnackBar(
                                     context: context, content: "Done");
                               }),
@@ -117,8 +125,8 @@ class _ProductScreenState extends State<ProductScreen> {
                               color: yellowColor,
                               isLoading: false,
                               onPressed: () async {
-                                // await CloudFirestoreClass().addProductToCart(
-                                //     productModel: widget.productModel);
+                                await CloudFirestoreClass().addProductToCart(
+                                    productModel: widget.productModel);
                                 Utils().showSnackBar(
                                     context: context,
                                     content: "Added to cart.");
@@ -132,7 +140,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                 //       productUid: widget.productModel.uid,
                                 //     ));
                               },
-                              text: "Add a review for this product"),
+                              text: "View in AR"),
                         ],
                       ),
                     ),

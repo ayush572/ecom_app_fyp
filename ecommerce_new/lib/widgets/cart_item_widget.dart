@@ -61,48 +61,48 @@ class CartItemWidget extends StatelessWidget {
             ),
             flex: 3,
           ),
-          Expanded(
-            child: Row(
-              children: [
-                CustomSquareButton(
-                    child: const Icon(Icons.remove),
-                    onPressed: () {},
-                    color: backgroundColor,
-                    dimension: 40),
-                CustomSquareButton(
-                    child: const Text(
-                      "0",
-                      style: TextStyle(
-                        color: activeCyanColor,
-                      ),
-                    ),
-                    onPressed: () {},
-                    color: Colors.white,
-                    dimension: 40),
-                CustomSquareButton(
-                    child: const Icon(Icons.add),
-                    onPressed: () async {
-                      // await CloudFirestoreClass().addProductToCart(
-                      //     productModel: ProductModel(
-                      //         url: product.url,
-                      //         productName: product.productName,
-                      //         cost: product.cost,
-                      //         discount: product.discount,
-                      //         uid: Utils().getUid(),
-                      //         sellerName: product.sellerName,
-                      //         sellerUid: product.sellerUid,
-                      //         rating: product.rating,
-                      //         noOfRating: product.noOfRating));
-                    },
-                    color: backgroundColor,
-                    dimension: 40),
-              ],
-            ),
-            flex: 1,
-          ),
+          // Expanded(
+          //   child: Row(
+          //     children: [
+                // CustomSquareButton(
+                //     child: const Icon(Icons.remove),
+                //     onPressed: () {},
+                //     color: backgroundColor,
+                //     dimension: 40),
+                // CustomSquareButton(
+                //     child: const Text(
+                //       "0",
+                //       style: TextStyle(
+                //         color: activeCyanColor,
+                //       ),
+                //     ),
+                //     onPressed: () {},
+                //     color: Colors.white,
+                //     dimension: 40),
+                // CustomSquareButton(
+                //     child: const Icon(Icons.add),
+                //     onPressed: () async {
+                //       await CloudFirestoreClass().addProductToCart(
+                //           productModel: ProductModel(
+                //               url: product.url,
+                //               productName: product.productName,
+                //               cost: product.cost,
+                //               discount: product.discount,
+                //               uid: Utils().getUid(),
+                //               sellerName: product.sellerName,
+                //               sellerUid: product.sellerUid,
+                //               rating: product.rating,
+                //               noOfRating: product.noOfRating));
+                //     },
+                //     color: backgroundColor,
+                //     dimension: 40),
+              // ],
+            // ),
+            // flex: 1,
+          // ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 5),
+              padding: const EdgeInsets.only(top: 0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -110,8 +110,8 @@ class CartItemWidget extends StatelessWidget {
                     children: [
                       CustomSimpleRoundedButton(
                           onPressed: () async {
-                          //   CloudFirestoreClass()
-                          //       .deleteProductFromCart(uid: product.uid);
+                            CloudFirestoreClass()
+                                .deleteProductFromCart(uid: product.uid);
                           },
                           text: "Delete"),
                       const SizedBox(

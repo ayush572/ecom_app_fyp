@@ -85,7 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                         Align(alignment: Alignment.center,
                             child:
-                            CustomMainButton(color: yellowColor,
+                            CustomMainButton(color: Color(0xff5C8374),
                                 isLoading: isLoading,
                                 onPressed: () async {
                                   setState(() {
